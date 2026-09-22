@@ -1,71 +1,79 @@
-Yes bhai. 👍 Since this is going on GitHub and recruiters may see it, let’s make the README professional but not overly long.
+Perfect. 👍 Keep the README open.
 
-Copy everything below into the empty README.md in TextEdit.
+Now delete everything inside it and paste this version. This one is cleaner for a GitHub portfolio and doesn’t use fake screenshots or badges.
 
 🧠 DevTutor AI
 
-An AI-powered technical learning assistant built as a Chrome Extension for developers and students.
+AI-Powered Technical Learning Assistant for Developers
 
-DevTutor AI helps you learn programming concepts directly while browsing technical content.
+DevTutor AI is a Chrome Extension that helps developers and students understand technical concepts while browsing.
 
-Select a technical term or piece of code, right-click, and use Explain with DevTutor to get a short, practical explanation powered by a local AI model.
+Select any technical text or code → right-click → Explain with DevTutor → learn the concept using AI-powered explanations, examples, interview questions, and quizzes.
+
+The project uses Ollama + Qwen 3 1.7B locally, so it does not require a paid AI API.
 
 ⸻
 
 ✨ Features
 
-* 🧠 AI Explanation - Understand technical concepts in simple language
-* 💻 Code Examples - Get small practical examples
-* ❓ Why is it used? - Understand real-world use cases
-* 🎯 Interview Questions - Practice beginner-level interview questions
-* 🧪 AI Quiz - Test your understanding with MCQs
-* 📚 Learning History - Track previously learned concepts
-* 📊 Learning Dashboard - View learning and quiz statistics
-* 📄 PDF Learning - Upload technical PDFs and learn from them
-* 💬 PDF Q&A - Ask questions about uploaded PDF content
-* 🔒 Local AI - Uses Ollama and Qwen locally instead of a paid AI API
-* ⚡ Fast Responses - Prompts are designed for short, practical answers
+Feature	Description
+🧠 AI Explanation	Understand technical concepts in simple language
+💻 Code Examples	Get practical examples for selected concepts
+❓ Why is it Used?	Understand real-world applications
+🎯 Interview Questions	Generate beginner-friendly interview questions
+🧪 AI Quiz	Test your understanding with MCQs
+📚 Learning History	Track concepts you have learned
+📊 Learning Dashboard	View learning and quiz statistics
+📄 PDF Learning	Upload technical PDFs and learn from them
+💬 PDF Q&A	Ask questions about PDF content
+🔒 Local AI	Run AI locally using Ollama and Qwen
 
 ⸻
 
-🏗️ Architecture
+🏗️ How It Works
 
-┌──────────────────────────┐
-│     Chrome Extension     │
-│                          │
-│  Selection / Popup / UI  │
-└────────────┬─────────────┘
-             │
-             ▼
-┌──────────────────────────┐
-│     Node.js + Express    │
-│       Local Backend      │
-└────────────┬─────────────┘
-             │
-             ▼
-┌──────────────────────────┐
-│          Ollama          │
-│       Local AI Runtime   │
-└────────────┬─────────────┘
-             │
-             ▼
-┌──────────────────────────┐
-│       Qwen 3 1.7B        │
-│       Local AI Model     │
-└──────────────────────────┘
-
-Chrome local storage is used for learning history, quiz statistics, selected text, and related local learning data.
+             ┌──────────────────────┐
+             │    Chrome Browser    │
+             │                      │
+             │  Select Text / Code  │
+             └──────────┬───────────┘
+                        │
+                        ▼
+             ┌──────────────────────┐
+             │   DevTutor Chrome    │
+             │      Extension       │
+             └──────────┬───────────┘
+                        │
+                        ▼
+             ┌──────────────────────┐
+             │    Node.js +         │
+             │      Express        │
+             │    Local Backend     │
+             └──────────┬───────────┘
+                        │
+                        ▼
+             ┌──────────────────────┐
+             │       Ollama         │
+             │    Local AI Runtime  │
+             └──────────┬───────────┘
+                        │
+                        ▼
+             ┌──────────────────────┐
+             │     Qwen 3 1.7B      │
+             │      AI Model        │
+             └──────────────────────┘
 
 ⸻
 
 🛠️ Tech Stack
 
-Frontend
+Chrome Extension
 
 * HTML
 * CSS
 * JavaScript
 * Chrome Extension Manifest V3
+* Chrome Local Storage
 
 Backend
 
@@ -80,18 +88,14 @@ AI
 * Ollama
 * Qwen 3 1.7B
 
-Storage
-
-* Chrome Local Storage
-
 ⸻
 
-📁 Project Structure
+📂 Project Structure
 
-devtutor/
+devtutor-ai/
 │
-├── manifest.json
 ├── background.js
+├── manifest.json
 ├── popup.html
 ├── popup.css
 ├── popup.js
@@ -110,10 +114,19 @@ devtutor/
 
 🚀 Getting Started
 
+Prerequisites
+
+Make sure you have:
+
+* Google Chrome
+* Node.js
+* Ollama
+* Qwen 3 1.7B model
+
 1. Clone the repository
 
-git clone <YOUR_GITHUB_REPOSITORY_URL>
-cd devtutor
+git clone https://github.com/sharvilphale22/devtutor-ai.git
+cd devtutor-ai
 
 2. Install backend dependencies
 
@@ -122,28 +135,28 @@ npm install
 
 3. Start Ollama
 
-Make sure Ollama is installed and the Qwen model is available.
+Start the local Ollama server:
 
 ollama serve
 
-The project uses:
+Make sure the required model is available:
 
-qwen3:1.7b
+ollama run qwen3:1.7b
 
 4. Start the DevTutor backend
 
 Open another Terminal window:
 
-cd ~/Desktop/devtutor/server
+cd ~/Desktop/devtutor-ai/server
 npm start
 
-The backend runs at:
+The backend will run at:
 
 http://localhost:3000
 
 5. Load the Chrome Extension
 
-Open Chrome and go to:
+Open Chrome:
 
 chrome://extensions
 
@@ -151,74 +164,96 @@ Then:
 
 1. Enable Developer mode
 2. Click Load unpacked
-3. Select the devtutor folder
+3. Select the cloned devtutor-ai folder
 4. Open the DevTutor AI extension
 
 ⸻
 
-💡 How It Works
+💡 How to Use
 
-1. Select a technical concept or code on a webpage.
-2. Right-click the selection.
-3. Select Explain with DevTutor.
-4. Open the DevTutor extension.
-5. Choose an action such as:
-    * Explain
-    * Give Example
-    * Why is it used?
-    * Interview Question
-    * Quiz Me
-6. DevTutor sends the request to the local backend.
-7. Ollama processes the request using Qwen.
-8. The result is displayed inside the extension.
+Learn from a webpage
+
+1. Open a technical webpage.
+2. Select a technical concept or code.
+3. Right-click the selected text.
+4. Select Explain with DevTutor.
+5. Open the DevTutor extension.
+6. Choose an action.
+
+Available actions include:
+
+🧠 Explain
+💡 Give Example
+❓ Why is it used?
+🎯 Interview Question
+🧪 Quiz Me
 
 ⸻
 
 📄 PDF Learning
 
-DevTutor can also process technical PDFs.
+DevTutor AI also supports technical PDF learning.
 
-The PDF workflow allows users to:
+Users can:
 
 * Upload a PDF
 * Extract readable text
-* Generate a short AI summary
+* Generate an AI summary
 * Ask questions about the PDF
-* Generate quizzes from the PDF content
+* Generate quizzes from PDF content
 * Track PDF learning activity
 
 Current limitation
 
 The current PDF system works with PDFs containing selectable/readable text.
 
-Scanned PDFs that contain only images may require OCR in a future version.
+Scanned PDFs containing only images may require OCR support in a future version.
 
 ⸻
 
-🔒 Privacy
+📊 Learning Dashboard
 
-DevTutor is designed around a local-first approach.
+The dashboard provides an overview of the learner’s activity, including:
 
-The AI requests are processed through a locally running Ollama instance instead of requiring a paid cloud AI API.
+* Concepts learned
+* Quizzes completed
+* Quiz accuracy
+* PDF learning activity
+* Recent learning history
 
-No OpenAI API key is required.
+This turns DevTutor from a simple AI explainer into a basic learning system.
+
+⸻
+
+🔒 Privacy & Local AI
+
+DevTutor AI follows a local-first approach.
+
+AI processing is performed through a locally running Ollama instance using the Qwen model.
+
+No paid OpenAI API key is required.
+
+This also allows the project to experiment with AI-assisted learning without depending on a paid cloud AI API.
 
 ⸻
 
 🎯 Project Goal
 
-The goal of DevTutor AI is to make technical learning more interactive while developers browse documentation, tutorials, code examples, and technical resources.
+Most developers learn from documentation, tutorials, Stack Overflow, GitHub, and technical articles.
 
-Instead of leaving the webpage to search for an explanation, learners can interact with the selected concept directly inside their browser.
+DevTutor AI aims to make that learning process more interactive.
+
+Instead of leaving the webpage to search for an explanation, users can select the concept they don’t understand and learn about it directly inside the browser.
+
+The long-term goal is to build a developer-focused AI learning system rather than just a general-purpose webpage summarizer.
 
 ⸻
 
 🔮 Future Improvements
 
-Possible future improvements include:
+Potential future improvements include:
 
 * OCR support for scanned PDFs
-* Better code formatting
 * More advanced learning analytics
 * Spaced-repetition learning
 * Knowledge graph of learned concepts
@@ -235,28 +270,29 @@ Sharvil Phale
 
 Electronics & Telecommunication Engineering Student
 
-Interested in software engineering, AI, developer tools, and intelligent learning systems.
+Interested in:
+
+* Software Engineering
+* Artificial Intelligence
+* Developer Tools
+* AI Agents
+* Intelligent Learning Systems
 
 ⸻
 
-⭐ If You Find This Project Interesting
+⭐ Project
 
-Feel free to explore the code, suggest improvements, or build your own version of the idea.
+DevTutor AI
 
-Important
+Built to explore how local AI can be integrated into everyday developer workflows and technical learning.
 
-There is one placeholder in the README:
+After pasting
 
-<YOUR_GITHUB_REPOSITORY_URL>
+Do only these two things:
 
-Don’t change it yet. We don’t have your GitHub repository URL because we haven’t created the repository.
+1. Press Command + S to save.
+2. Close TextEdit.
 
-For now:
+Do not run git add yet.
 
-1. Paste the README above.
-2. Save it with Command + S.
-3. Close TextEdit.
-
-Then tell me “saved”.
-
-After that we’ll create the GitHub repository and replace that placeholder with the real URL.
+After saving, tell me “saved” and I’ll check the next step with you before we push anything to GitHub.
