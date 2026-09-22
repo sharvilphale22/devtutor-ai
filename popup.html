@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>DevTutor AI</title>
+
+  <link
+    rel="stylesheet"
+    href="popup.css"
+  >
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <div class="header">
+
+    <h1>🧠 DevTutor AI</h1>
+
+    <p>
+      AI learning assistant for developers
+    </p>
+
+  </div>
+
+
+  <!-- MAIN VIEW -->
+
+  <div id="mainView">
+
+    <!-- SELECTED TEXT -->
+
+    <div class="selected-section">
+
+      <p class="label">
+        Selected text
+      </p>
+
+      <div id="result">
+        Select technical text from a webpage
+        and choose an action.
+      </div>
+
+    </div>
+
+
+    <!-- ACTIONS -->
+
+    <div class="actions">
+
+      <button id="explainButton">
+        🧠 Explain
+      </button>
+
+      <button id="exampleButton">
+        💡 Give Example
+      </button>
+
+      <button id="whyButton">
+        ❓ Why is it used?
+      </button>
+
+      <button id="interviewButton">
+        🎯 Interview Question
+      </button>
+
+      <button id="quizButton">
+        🧪 Quiz Me
+      </button>
+
+    </div>
+
+
+    <!-- TOOLS -->
+
+    <div class="secondary-actions">
+
+      <button
+        id="pdfButton"
+        class="secondary-button"
+      >
+        📄 Learn from PDF
+      </button>
+
+      <button
+        id="dashboardButton"
+        class="secondary-button"
+      >
+        📊 Dashboard
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- PDF VIEW -->
+
+  <div
+    id="pdfView"
+    class="hidden"
+  >
+
+    <div class="view-header">
+
+      <button
+        id="pdfBackButton"
+        class="back-button"
+      >
+        ← Back
+      </button>
+
+      <div>
+        <div class="view-title">
+          PDF Learning
+        </div>
+
+        <div
+          id="pdfFileName"
+          class="view-subtitle"
+        >
+          Upload a technical PDF
+        </div>
+      </div>
+
+    </div>
+
+
+    <input
+      id="pdfInput"
+      type="file"
+      accept="application/pdf,.pdf"
+      hidden
+    >
+
+
+    <button
+      id="choosePdfButton"
+      class="primary-button"
+    >
+      📄 Choose PDF
+    </button>
+
+
+    <div
+      id="pdfStatus"
+      class="status-box"
+    >
+      Upload a PDF to start learning.
+    </div>
+
+
+    <div
+      id="pdfActions"
+      class="hidden"
+    >
+
+      <button
+        id="pdfSummaryButton"
+        class="secondary-button"
+      >
+        🧠 Summarize PDF
+      </button>
+
+
+      <button
+        id="pdfQuizButton"
+        class="secondary-button"
+      >
+        🧪 Quiz from PDF
+      </button>
+
+
+      <div class="pdf-question-box">
+
+        <p class="label">
+          Ask about this PDF
+        </p>
+
+        <textarea
+          id="pdfQuestionInput"
+          placeholder="Example: What is the main idea of this chapter?"
+        ></textarea>
+
+        <button
+          id="pdfAskButton"
+          class="primary-button"
+        >
+          Ask DevTutor
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div id="pdfResult"></div>
+
+  </div>
+
+
+  <!-- DASHBOARD -->
+
+  <div
+    id="dashboardView"
+    class="hidden"
+  >
+
+    <div class="view-header">
+
+      <button
+        id="dashboardBackButton"
+        class="back-button"
+      >
+        ← Back
+      </button>
+
+      <div>
+
+        <div class="view-title">
+          Learning Dashboard
+        </div>
+
+        <div class="view-subtitle">
+          Your DevTutor progress
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="stats-grid">
+
+      <div class="stat-card">
+
+        <div
+          id="conceptCount"
+          class="stat-number"
+        >
+          0
+        </div>
+
+        <div class="stat-label">
+          Concepts
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div
+          id="quizCount"
+          class="stat-number"
+        >
+          0
+        </div>
+
+        <div class="stat-label">
+          Quizzes
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div
+          id="accuracyCount"
+          class="stat-number"
+        >
+          0%
+        </div>
+
+        <div class="stat-label">
+          Accuracy
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div
+          id="pdfCount"
+          class="stat-number"
+        >
+          0
+        </div>
+
+        <div class="stat-label">
+          PDFs
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="dashboard-section">
+
+      <div class="section-heading">
+        Recent Learning
+      </div>
+
+      <div id="dashboardRecent">
+        No learning activity yet.
+      </div>
+
+    </div>
+
+
+    <button
+      id="historyButton"
+      class="secondary-button"
+    >
+      📚 Full Learning History
+    </button>
+
+  </div>
+
+
+  <!-- HISTORY -->
+
+  <div
+    id="historyView"
+    class="hidden"
+  >
+
+    <div class="view-header">
+
+      <button
+        id="historyBackButton"
+        class="back-button"
+      >
+        ← Back
+      </button>
+
+      <div>
+
+        <div class="view-title">
+          Learning History
+        </div>
+
+        <div
+          id="historyCount"
+          class="view-subtitle"
+        >
+          0 concepts
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div
+      id="historyList"
+      class="history-list"
+    ></div>
+
+
+    <button
+      id="clearHistoryButton"
+      class="clear-history-button"
+    >
+      Clear History
+    </button>
+
+  </div>
+
+
+  <script src="popup.js"></script>
+
+</body>
+
+</html>

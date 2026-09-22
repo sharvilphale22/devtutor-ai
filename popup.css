@@ -1,0 +1,609 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 360px;
+  margin: 0;
+  padding: 18px;
+  font-family: Arial, sans-serif;
+  background: #ffffff;
+  color: #111827;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none !important;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+  margin-bottom: 18px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+}
+
+.header p {
+  margin: 5px 0 0;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+
+/* =========================================================
+   SELECTED TEXT
+========================================================= */
+
+.selected-section {
+  margin-bottom: 16px;
+}
+
+.label {
+  margin: 0 0 7px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+#result {
+  padding: 13px;
+  min-height: 90px;
+  max-height: 420px;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.55;
+  overflow-y: auto;
+  overflow-wrap: break-word;
+  color: #1f2937;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
+  background: #111827;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+button:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow:
+    0 3px 8px
+    rgba(0, 0, 0, 0.12);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:focus {
+  outline: 2px solid #9ca3af;
+  outline-offset: 2px;
+}
+
+
+/* =========================================================
+   SECONDARY ACTIONS
+========================================================= */
+
+.secondary-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.secondary-button {
+  background: #f8fafc;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+}
+
+.secondary-button:hover {
+  background: #f1f5f9;
+  opacity: 1;
+}
+
+
+/* =========================================================
+   AI RESPONSE
+========================================================= */
+
+.ai-response {
+  line-height: 1.55;
+  font-size: 13px;
+}
+
+.ai-section {
+  margin-bottom: 12px;
+  padding: 12px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
+  line-height: 1.55;
+}
+
+.section-title {
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #111827;
+}
+
+
+/* =========================================================
+   THINKING
+========================================================= */
+
+.thinking {
+  padding: 20px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.error-message {
+  padding: 14px;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: 8px;
+  color: #9a3412;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   CODE
+========================================================= */
+
+.code-container {
+  margin: 8px 0 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #111827;
+}
+
+.code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 9px;
+  background: #1f2937;
+  color: #d1d5db;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.code-block {
+  margin: 0;
+  padding: 12px;
+  background: #111827;
+  border-radius: 0;
+  overflow-x: auto;
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #ffffff;
+  white-space: pre;
+}
+
+.copy-button {
+  width: auto;
+  padding: 5px 8px;
+  border: 1px solid #4b5563;
+  border-radius: 6px;
+  background: #374151;
+  color: white;
+  font-size: 11px;
+}
+
+.copy-button:hover {
+  opacity: 0.9;
+  transform: none;
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   VIEW HEADER
+========================================================= */
+
+.view-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.view-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.view-subtitle {
+  margin-top: 3px;
+  font-size: 10px;
+  color: #6b7280;
+}
+
+.back-button {
+  width: auto;
+  padding: 7px 9px;
+  background: #f8fafc;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+  font-size: 12px;
+}
+
+.back-button:hover {
+  background: #f1f5f9;
+  opacity: 1;
+  transform: none;
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   PDF
+========================================================= */
+
+.primary-button {
+  background: #111827;
+  color: #ffffff;
+}
+
+.status-box {
+  margin-top: 10px;
+  padding: 11px;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.pdf-question-box {
+  margin-top: 15px;
+}
+
+#pdfQuestionInput {
+  width: 100%;
+  min-height: 75px;
+  resize: vertical;
+  padding: 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 1.5;
+  outline: none;
+}
+
+#pdfQuestionInput:focus {
+  border-color: #9ca3af;
+}
+
+#pdfResult {
+  margin-top: 14px;
+}
+
+.pdf-result-card {
+  padding: 12px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   DASHBOARD
+========================================================= */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.stat-card {
+  padding: 13px;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
+}
+
+.stat-number {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.stat-label {
+  margin-top: 3px;
+  font-size: 10px;
+  color: #6b7280;
+}
+
+.dashboard-section {
+  margin-bottom: 14px;
+}
+
+.section-heading {
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.recent-item {
+  display: flex;
+  gap: 9px;
+  padding: 9px;
+  margin-bottom: 6px;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.recent-item > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  background: #e5e7eb;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.recent-item small {
+  display: block;
+  margin-top: 3px;
+  color: #6b7280;
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   HISTORY
+========================================================= */
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-bottom: 12px;
+}
+
+.history-card {
+  padding: 11px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
+
+.history-card-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.history-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.history-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.history-concept {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.history-date {
+  margin-top: 4px;
+  font-size: 10px;
+  color: #6b7280;
+}
+
+.history-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 9px;
+}
+
+.delete-history-button {
+  width: auto;
+  padding: 6px 8px;
+  border: 1px solid #fee2e2;
+  border-radius: 6px;
+  background: #fff7f7;
+  color: #b91c1c;
+  font-size: 11px;
+}
+
+.delete-history-button:hover {
+  background: #fef2f2;
+  opacity: 1;
+  transform: none;
+  box-shadow: none;
+}
+
+.clear-history-button {
+  width: 100%;
+  padding: 8px;
+  background: #f8fafc;
+  color: #374151;
+  font-size: 11px;
+}
+
+.history-empty {
+  padding: 28px 16px;
+  text-align: center;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
+
+.history-empty-icon {
+  font-size: 30px;
+  margin-bottom: 9px;
+}
+
+.history-empty-title {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.history-empty-text {
+  margin-top: 6px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: #6b7280;
+}
+
+
+/* =========================================================
+   QUIZ
+========================================================= */
+
+.quiz-question {
+  margin-bottom: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quiz-option {
+  width: 100%;
+  margin: 0;
+  padding: 10px 12px;
+  text-align: left;
+  background: #f8fafc;
+  color: #111827;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.quiz-option:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  transform: none;
+  box-shadow: none;
+  opacity: 1;
+}
+
+.quiz-option:disabled {
+  cursor: default;
+  opacity: 0.8;
+}
+
+.quiz-result-message {
+  margin-top: 12px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.quiz-why {
+  padding: 10px;
+  background: #f8fafc;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+#result::-webkit-scrollbar,
+#pdfResult::-webkit-scrollbar {
+  width: 6px;
+}
+
+#result::-webkit-scrollbar-track,
+#pdfResult::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#result::-webkit-scrollbar-thumb,
+#pdfResult::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
