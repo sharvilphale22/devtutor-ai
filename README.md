@@ -1,7 +1,3 @@
-Perfect. 👍 Keep the README open.
-
-Now delete everything inside it and paste this version. This one is cleaner for a GitHub portfolio and doesn’t use fake screenshots or badges.
-
 🧠 DevTutor AI
 
 AI-Powered Technical Learning Assistant for Developers
