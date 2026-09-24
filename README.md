@@ -1,94 +1,286 @@
-🧠 DevTutor AI
+🤖 DevTutor AI
 
-AI-Powered Technical Learning Assistant for Developers
+AI-powered learning assistant for developers
 
-DevTutor AI is a Chrome Extension that helps developers and students understand technical concepts while browsing.
+DevTutor AI is a Chrome extension that helps developers understand technical concepts while browsing.
 
-Select any technical text or code → right-click → Explain with DevTutor → learn the concept using AI-powered explanations, examples, interview questions, and quizzes.
+Select technical text on a webpage, right-click, and choose “Explain with DevTutor” to get a clear explanation powered by a local AI model.
 
-The project uses Ollama + Qwen 3 1.7B locally, so it does not require a paid AI API.
+It also provides examples, use cases, interview questions, quizzes, PDF learning, and learning history.
+
+🚀 Built with Chrome Extensions, Node.js, Express, Ollama, and Qwen 1.7B.
 
 ⸻
 
 ✨ Features
 
-Feature	Description
-🧠 AI Explanation	Understand technical concepts in simple language
-💻 Code Examples	Get practical examples for selected concepts
-❓ Why is it Used?	Understand real-world applications
-🎯 Interview Questions	Generate beginner-friendly interview questions
-🧪 AI Quiz	Test your understanding with MCQs
-📚 Learning History	Track concepts you have learned
-📊 Learning Dashboard	View learning and quiz statistics
-📄 PDF Learning	Upload technical PDFs and learn from them
-💬 PDF Q&A	Ask questions about PDF content
-🔒 Local AI	Run AI locally using Ollama and Qwen
+* 🧠 AI Explanations
+    Understand selected technical concepts in simple language.
+* 💡 Code Examples
+    Get practical examples related to the selected concept.
+* ❓ Why Is It Used?
+    Understand where and why a technology or concept is useful.
+* 🎯 Interview Questions
+    Practice technical interview questions based on what you are learning.
+* 🧪 Quiz Mode
+    Test your understanding with quick technical quizzes.
+* 📚 Learning History
+    Keep track of concepts you have learned.
+* 📄 PDF Learning
+    Upload a technical PDF, get a summary, ask questions, and generate quizzes.
+* 📊 Learning Dashboard
+    View your learning activity and progress.
+* 🔒 Local AI
+    AI processing currently runs through Ollama and Qwen locally instead of requiring a paid OpenAI API key.
 
 ⸻
 
-🏗️ How It Works
+🖥️ How DevTutor AI Works
 
-             ┌──────────────────────┐
-             │    Chrome Browser    │
-             │                      │
-             │  Select Text / Code  │
-             └──────────┬───────────┘
-                        │
-                        ▼
-             ┌──────────────────────┐
-             │   DevTutor Chrome    │
-             │      Extension       │
-             └──────────┬───────────┘
-                        │
-                        ▼
-             ┌──────────────────────┐
-             │    Node.js +         │
-             │      Express        │
-             │    Local Backend     │
-             └──────────┬───────────┘
-                        │
-                        ▼
-             ┌──────────────────────┐
-             │       Ollama         │
-             │    Local AI Runtime  │
-             └──────────┬───────────┘
-                        │
-                        ▼
-             ┌──────────────────────┐
-             │     Qwen 3 1.7B      │
-             │      AI Model        │
-             └──────────────────────┘
+You select technical text
+          ↓
+Right-click → Explain with DevTutor
+          ↓
+Chrome Extension
+          ↓
+Local Node.js Backend
+          ↓
+Ollama
+          ↓
+Qwen 1.7B
+          ↓
+Clear AI-powered explanation
+
+⸻
+
+📋 Requirements
+
+Before installing DevTutor AI, make sure you have:
+
+* Google Chrome
+* Node.js 18 or newer
+* Ollama
+* Git (optional, only required if cloning the repository)
+
+You can download Node.js from:
+
+https://nodejs.org/
+
+You can download Ollama from:
+
+https://ollama.com/
+
+⸻
+
+📥 Installation
+
+There are two ways to download the project.
+
+Option 1: Download ZIP
+
+1. Open the DevTutor AI GitHub repository.
+2. Click the green Code button.
+3. Click Download ZIP.
+4. Extract the ZIP file.
+5. Open the extracted project folder.
+
+Option 2: Clone with Git
+
+Open Terminal and run:
+
+git clone https://github.com/sharvilphale22/devtutor-ai.git
+cd devtutor-ai
+
+⸻
+
+🧠 Step 1: Install the Qwen AI Model
+
+Open Terminal and run:
+
+ollama pull qwen3:1.7b
+
+This downloads the Qwen 1.7B model to your computer.
+
+You only need to do this once.
+
+⸻
+
+⚙️ Step 2: Install Backend Dependencies
+
+Open Terminal and go to the server folder:
+
+cd ~/Desktop/devtutor/server
+
+Install the required packages:
+
+npm install
+
+⸻
+
+🚀 Step 3: Start the AI Backend
+
+Start Ollama in one Terminal:
+
+ollama serve
+
+Keep this Terminal running.
+
+Then open another Terminal and run:
+
+ollama run qwen3:1.7b
+
+Keep this running as well.
+
+Now open another Terminal and start the DevTutor backend:
+
+cd ~/Desktop/devtutor/server
+node server.js
+
+The backend should start on:
+
+http://localhost:3000
+
+You can test it by opening this address in Chrome:
+
+http://localhost:3000/health
+
+You should see:
+
+{
+  "status": "ok"
+}
+
+⸻
+
+🌐 Step 4: Install DevTutor AI in Chrome
+
+DevTutor AI is currently distributed as an unpacked Chrome extension.
+
+No Chrome Web Store subscription is required.
+
+1. Open Chrome
+
+Go to:
+
+chrome://extensions
+
+2. Enable Developer Mode
+
+Turn on:
+
+Developer mode
+
+3. Load the extension
+
+Click:
+
+Load unpacked
+
+4. Select the project folder
+
+Select the main DevTutor AI folder:
+
+devtutor-ai
+
+or, if you downloaded it to your Desktop:
+
+~/Desktop/devtutor
+
+Chrome will load DevTutor AI.
+
+⸻
+
+🧪 Step 5: Use DevTutor AI
+
+Method 1: Explain selected text
+
+1. Open any technical webpage.
+2. Select a technical word, sentence, or paragraph.
+3. Right-click.
+4. Select:
+
+Explain with DevTutor
+
+5. Open the DevTutor AI extension.
+6. Choose the feature you want.
+
+For example:
+
+Select: "What is JWT authentication?"
+              ↓
+Explain with DevTutor
+              ↓
+DevTutor AI
+              ↓
+Simple explanation + technical details
+
+⸻
+
+📄 PDF Learning
+
+DevTutor AI can also help you learn from technical PDFs.
+
+You can:
+
+* Upload a PDF
+* Generate a summary
+* Ask questions about the PDF
+* Generate quizzes
+* Learn important concepts from the document
+
+This is useful for:
+
+* College notes
+* Technical documentation
+* Research papers
+* Interview preparation
+* Course material
+
+⸻
+
+📚 Learning History
+
+DevTutor AI keeps track of concepts you have explored.
+
+You can use Learning History to review previously studied topics instead of searching for them again.
+
+⸻
+
+📊 Learning Dashboard
+
+The dashboard provides an overview of your learning activity, including concepts and learning progress.
+
+The goal is to turn DevTutor AI from a simple AI explainer into a developer learning system.
 
 ⸻
 
 🛠️ Tech Stack
 
-Chrome Extension
-
-* HTML
-* CSS
-* JavaScript
-* Chrome Extension Manifest V3
-* Chrome Local Storage
-
-Backend
-
-* Node.js
-* Express.js
-* CORS
-* Multer
-* PDF Parse
-
-AI
-
-* Ollama
-* Qwen 3 1.7B
+Technology	Purpose
+JavaScript	Extension logic
+HTML	Extension interface
+CSS	User interface
+Chrome Extension Manifest V3	Browser extension
+Node.js	Backend runtime
+Express.js	Backend API
+Ollama	Local AI runtime
+Qwen 3 1.7B	Local AI model
+PDF Parse	PDF text extraction
+Chrome Storage	Local learning data
 
 ⸻
 
-📂 Project Structure
+📁 Project Structure
 
-devtutor-ai/
+devtutor/
+│
+├── assets/
+│   └── devtutor-icon.png
+│
+├── server/
+│   ├── server.js
+│   ├── package.json
+│   └── package-lock.json
 │
 ├── background.js
 ├── manifest.json
@@ -98,165 +290,120 @@ devtutor-ai/
 │
 ├── package.json
 ├── package-lock.json
-├── .gitignore
 ├── README.md
-│
-└── server/
-    ├── server.js
-    ├── package.json
-    └── package-lock.json
+└── .gitignore
 
 ⸻
 
-🚀 Getting Started
+🔐 Privacy
 
-Prerequisites
+DevTutor AI currently uses a local AI setup.
 
-Make sure you have:
+Your selected text and PDF processing are sent to your local backend:
 
-* Google Chrome
-* Node.js
-* Ollama
-* Qwen 3 1.7B model
+Chrome Extension
+       ↓
+localhost:3000
+       ↓
+Ollama
+       ↓
+Qwen
 
-1. Clone the repository
+The current version does not require a personal OpenAI API key.
 
-git clone https://github.com/sharvilphale22/devtutor-ai.git
-cd devtutor-ai
+⸻
 
-2. Install backend dependencies
+⚠️ Important: Local AI Requirement
 
-cd server
-npm install
+The current version of DevTutor AI is designed for local use.
 
-3. Start Ollama
+Installing the Chrome extension alone is not enough for the AI features.
 
-Start the local Ollama server:
+You also need:
 
-ollama serve
+Node.js
++
+Ollama
++
+Qwen 1.7B
++
+DevTutor backend
 
-Make sure the required model is available:
+If Ollama or the backend is not running, AI features will not work.
 
-ollama run qwen3:1.7b
+⸻
 
-4. Start the DevTutor backend
+🔧 Troubleshooting
 
-Open another Terminal window:
+Extension does not load
 
-cd ~/Desktop/devtutor-ai/server
-npm start
+Make sure you selected the main project folder containing:
 
-The backend will run at:
+manifest.json
 
-http://localhost:3000
-
-5. Load the Chrome Extension
-
-Open Chrome:
+Then reload the extension from:
 
 chrome://extensions
 
-Then:
+⸻
 
-1. Enable Developer mode
-2. Click Load unpacked
-3. Select the cloned devtutor-ai folder
-4. Open the DevTutor AI extension
+AI does not respond
+
+Make sure Ollama is running:
+
+ollama serve
+
+And make sure the model is available:
+
+ollama run qwen3:1.7b
+
+Also make sure the backend is running:
+
+cd server
+node server.js
 
 ⸻
 
-💡 How to Use
+Check the backend
 
-Learn from a webpage
+Open:
 
-1. Open a technical webpage.
-2. Select a technical concept or code.
-3. Right-click the selected text.
-4. Select Explain with DevTutor.
-5. Open the DevTutor extension.
-6. Choose an action.
+http://localhost:3000/health
 
-Available actions include:
+You should receive:
 
-🧠 Explain
-💡 Give Example
-❓ Why is it used?
-🎯 Interview Question
-🧪 Quiz Me
-
-⸻
-
-📄 PDF Learning
-
-DevTutor AI also supports technical PDF learning.
-
-Users can:
-
-* Upload a PDF
-* Extract readable text
-* Generate an AI summary
-* Ask questions about the PDF
-* Generate quizzes from PDF content
-* Track PDF learning activity
-
-Current limitation
-
-The current PDF system works with PDFs containing selectable/readable text.
-
-Scanned PDFs containing only images may require OCR support in a future version.
-
-⸻
-
-📊 Learning Dashboard
-
-The dashboard provides an overview of the learner’s activity, including:
-
-* Concepts learned
-* Quizzes completed
-* Quiz accuracy
-* PDF learning activity
-* Recent learning history
-
-This turns DevTutor from a simple AI explainer into a basic learning system.
-
-⸻
-
-🔒 Privacy & Local AI
-
-DevTutor AI follows a local-first approach.
-
-AI processing is performed through a locally running Ollama instance using the Qwen model.
-
-No paid OpenAI API key is required.
-
-This also allows the project to experiment with AI-assisted learning without depending on a paid cloud AI API.
+{
+  "status": "ok"
+}
 
 ⸻
 
 🎯 Project Goal
 
-Most developers learn from documentation, tutorials, Stack Overflow, GitHub, and technical articles.
+DevTutor AI aims to make technical learning easier by bringing an AI learning assistant directly into the developer’s browser.
 
-DevTutor AI aims to make that learning process more interactive.
+Instead of:
 
-Instead of leaving the webpage to search for an explanation, users can select the concept they don’t understand and learn about it directly inside the browser.
+Read → Get confused → Search Google → Watch videos → Search again
 
-The long-term goal is to build a developer-focused AI learning system rather than just a general-purpose webpage summarizer.
+DevTutor AI aims for:
+
+Learn → Select → Ask → Understand → Practice
 
 ⸻
 
-🔮 Future Improvements
+🚀 Future Improvements
 
-Potential future improvements include:
+Planned improvements include:
 
-* OCR support for scanned PDFs
-* More advanced learning analytics
-* Spaced-repetition learning
-* Knowledge graph of learned concepts
-* Cloud synchronization
-* Authentication
-* Online deployment
-* Support for additional local AI models
+* ☁️ Cloud-hosted AI backend
+* 👤 User accounts
+* 📈 Advanced learning analytics
+* 🧠 Personalized learning paths
+* 🔗 Knowledge graph
+* 📱 Improved cross-browser support
+* 🌐 Easier public installation
+* 🔍 RAG-based technical documentation learning
 
 ⸻
 
@@ -265,30 +412,36 @@ Potential future improvements include:
 Sharvil Phale
 
 Electronics & Telecommunication Engineering Student
+Developer | AI Enthusiast | Builder
 
-Interested in:
-
-* Software Engineering
-* Artificial Intelligence
-* Developer Tools
-* AI Agents
-* Intelligent Learning Systems
-
-⸻
-
-⭐ Project
+Project
 
 DevTutor AI
 
-Built to explore how local AI can be integrated into everyday developer workflows and technical learning.
+GitHub:
 
-After pasting
+https://github.com/sharvilphale22/devtutor-ai
 
-Do only these two things:
+⸻
 
-1. Press Command + S to save.
-2. Close TextEdit.
+⭐ If you find this project interesting
 
-Do not run git add yet.
+Star the repository and explore the project.
 
-After saving, tell me “saved” and I’ll check the next step with you before we push anything to GitHub.
+Learn. Understand. Build.
+
+Made with ❤️ by Sharvil Phale
+
+One important correction before you paste it
+
+Because your actual project folder is currently:
+
+~/Desktop/devtutor
+
+the README’s commands using ~/Desktop/devtutor/server are correct for your current setup. For someone who downloads the ZIP somewhere else, they should first cd into wherever they extracted the project, then run:
+
+cd server
+npm install
+node server.js
+
+That small change would make the README even more universal.cd ~/Desktop/devtutor
